@@ -199,7 +199,7 @@ while True:
 	elif int(a) == 3: 
 		while True:
 			os.system("clear")
-			print(''' \033[33m 
+			print('''\033[33m 
                                        `                                         
                                  `/ohhsoossss+.                                   
                               .++so/-........:sy-                                 
@@ -235,15 +235,30 @@ while True:
 `ymd: :MMM`  yMMm         mMM:  .NMM`  :MMNoNMMo    :MMd   :MMm`  +MMh  .:shNMMMh`
 .NMm- yMMs   .mMMs`  .s-  mMM:  .NMM.  :MMm`.dMMd.  /MMm   :MMm`  +MMh  hs`  `mMm`
  .oo+yyo-      :syhys+` .+ssss-.+ssso-:osss+. osss//sssso.:osss+`:ssss+`++o+/+y+` 
+
+   	\033[92m Select your choice:\033[91m  
+	\033[92m---------------------\033[91m
+	\033[94m 1. \033[93mJenkins Installation\033[91m
+	\033[94m 2. \033[93mJenkins Status\033[91m		
+	\033[94m 3. \033[93mStop Jenkins\033[91m		
+	\033[94m 4. \033[93mExit !\033[91m		
 \033[0m''')
 			d=input("Enter your choice : ")
 			if int(d) == 1:
-				f=open("/etc/yum.repos.d/docker.repo","w")
-				f.write("[docker]\nbaseurl=https://download.docker.com/linux/centos/7/x86_64/stable/ \ngpgcheck=0 \n")
-				f.close()
-				print("Cofigured !")
+				os.system("sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo")
+				os.system("sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key")
+				os.system("yum install jenkins")
+				print("Cofigured Press Enter!")
 				input()
-			elif int(d) == 4: 
+			elif int(d) == 2: 
+				print("Please wait while checking status..\n\033[33mPress Q then Enter to exit !\033[0m")			
+				os.system("systemctl status jenkins") 
+				input()
+			elif int(d) == 3:
+				os.system("systemctl stop jenkins") 
+				print("Jenkins Stoped press enter to continue !")
+				input()
+			elif int(d) == 4:
 				print("Press Enter to Main Menu !")
 				input()
 				os.system("clear")
@@ -251,27 +266,8 @@ while True:
 			else : 
 				print("Invalid Option\nPress Enter to continue...")
 				input()
-#----------------------------------GIT------------------------------------------------------------------------
-	elif int(e) == 5: 
-		while True:
-			os.system("clear")
-			print(''' \033[94m 
-\033[0m''')
-			d=input("Enter your choice : ")
-			if int(e) == 1:
-				f=open("/etc/yum.repos.d/docker.repo","w")
-				f.write("[docker]\nbaseurl=https://download.docker.com/linux/centos/7/x86_64/stable/ \ngpgcheck=0 \n")
-				f.close()
-				print("Cofigured !")
-				input()
-			elif int(e) == 4: 
-				print("Press Enter to Main Menu !")
-				input()
-				os.system("clear")
-				break;
-			else : 
-				print("Invalid Option\nPress Enter to continue...")
-				input()
+#----------------------------------------------------------------------------------------------------------
+	
 #--------------------------------------------------------------------------------------------------------------
 	elif int(a) == 4: 
 		print("Bye !")
