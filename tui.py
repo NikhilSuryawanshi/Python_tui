@@ -10,7 +10,7 @@ while True:
 		  `/shhyysyhNMMsd+:y`           \033[92m Select your choice:\033[91m
 		 `+oso+/:.+y:NMMMNNy            \033[94m 1. \033[93mYum\033[91m
 	      -/sdNNdsoss+--+sdMMmsd+           \033[94m 2. \033[93mDocker\033[91m
-	   .+yydNMNy++m+`   ./+NMhymNh:`        \033[94m 3. \033[93mServices\033[91m
+	   .+yydNMNy++m+`   ./+NMhymNh:`        \033[94m 3. \033[93mJenkins\033[91m
 	   -..yNMmys. -   `-:y:sNs+:ydNy`       \033[94m 4. \033[93mExit\033[91m
 	    .dNMMsMmo:  `ddoshhmN/-o``s.        
 	    yyyMM/NmMs  yMNd/-:-..``/-.`        
@@ -195,10 +195,84 @@ while True:
 			else : 
 				print("Invalid Option\nPress Enter to continue...")
 				input()
-
+#-------------------------------------------------------jenkins---------------------------------------------------------------
 	elif int(a) == 3: 
-		print("3")
-		input()
+		while True:
+			os.system("clear")
+			print(''' \033[33m 
+                                       `                                         
+                                 `/ohhsoossss+.                                   
+                              .++so/-........:sy-                                 
+                             oyoy/`............+do                                
+                           .hso+y:../so/......-:/y/                               
+                           sssssh-..:...-.......-.y                               
+                         -hmyhhss.......-o-.:+.:+oy+                              
+                       `yhsd+o+hh-...../o+.../s:-.yhd-                            
+                      .dysyh.+:--..............y/.dssd/                           
+                     `dyssshs:-/..........-+//++:/hsssd/                          
+                     shsssssyhm:...-..../+oss/so:dssssym`                         
+                    `mssssssssyy`..//...-ooo+/./dssssssd+                         
+                    -msssssssyhmy...-/+:....-+ydddysssshs                         
+                    -mssssyddhyshms/+hyddhsydhydhyddssshs                         
+                    `msshmhyyhhhhhhddysssydhhssydhhdsssd/                         
+                     ohsymyyhhhhhhhhhhssyyy:+ysydhdyssym`                         
+                     `dysymyhhhhhdhhhhdh+/s+.+/yhhdsssd:                          
+                      `hysdyyhhhhdyhhhddys+s+shhhdyyhmo                           
+                        sdhdyhhhddhdddhhhhddmmdddh++.`s+                          
+                         -ymyhhhhho`       `yyhs.o`-. `d`                         
+                           dyhhhhhs        `ohhd`y`-:..h`                         
+                           sddhhhhh`       `+ddm///so/+-                          
+                             .+shhd/       `/+o/                                  
+                                  .h        :/:y                                  
+                                   ++       -d+-                                  
+                                    osooooooo+                                    
+                                                                                  
+    .:::::::                          /hmNd`        sNNs                          
+     .oMMM:`                           :MMm`        +dd+                          
+      :MMM`     -://:`  `---:``-//-    :MMm` -----`---:-  .--:- .:/:.     -://--- 
+      :MMM`   oNN: /MMy``/NMMs++hMMd   :MMm` .dy/- -yMMd  -sMMNo++mMM+  -mMs``:ds 
+      :MMM`  oMMm+++MMM/  mMM:  .NMM`  :MMm.sN:     :MMd   :MMm`  oMMh  +MMNhs+-. 
+`ymd: :MMM`  yMMm         mMM:  .NMM`  :MMNoNMMo    :MMd   :MMm`  +MMh  .:shNMMMh`
+.NMm- yMMs   .mMMs`  .s-  mMM:  .NMM.  :MMm`.dMMd.  /MMm   :MMm`  +MMh  hs`  `mMm`
+ .oo+yyo-      :syhys+` .+ssss-.+ssso-:osss+. osss//sssso.:osss+`:ssss+`++o+/+y+` 
+\033[0m''')
+			d=input("Enter your choice : ")
+			if int(d) == 1:
+				f=open("/etc/yum.repos.d/docker.repo","w")
+				f.write("[docker]\nbaseurl=https://download.docker.com/linux/centos/7/x86_64/stable/ \ngpgcheck=0 \n")
+				f.close()
+				print("Cofigured !")
+				input()
+			elif int(d) == 4: 
+				print("Press Enter to Main Menu !")
+				input()
+				os.system("clear")
+				break;
+			else : 
+				print("Invalid Option\nPress Enter to continue...")
+				input()
+#----------------------------------GIT------------------------------------------------------------------------
+	elif int(e) == 5: 
+		while True:
+			os.system("clear")
+			print(''' \033[94m 
+\033[0m''')
+			d=input("Enter your choice : ")
+			if int(e) == 1:
+				f=open("/etc/yum.repos.d/docker.repo","w")
+				f.write("[docker]\nbaseurl=https://download.docker.com/linux/centos/7/x86_64/stable/ \ngpgcheck=0 \n")
+				f.close()
+				print("Cofigured !")
+				input()
+			elif int(e) == 4: 
+				print("Press Enter to Main Menu !")
+				input()
+				os.system("clear")
+				break;
+			else : 
+				print("Invalid Option\nPress Enter to continue...")
+				input()
+#--------------------------------------------------------------------------------------------------------------
 	elif int(a) == 4: 
 		print("Bye !")
 		input()
