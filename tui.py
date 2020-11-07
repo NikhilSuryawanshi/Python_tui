@@ -1,4 +1,6 @@
+#!python
 import getpass
+import subprocess
 import os
 while True:
 	os.system("clear")
@@ -8,12 +10,12 @@ while True:
 		       :o. ys o:``              
 		      `.-ssoN+d +` -+`          
 		  `/shhyysyhNMMsd+:y`           \033[92m Select your choice:\033[91m
-		 `+oso+/:.+y:NMMMNNy            \033[94m 1. \033[93mYum\033[91m
-	      -/sdNNdsoss+--+sdMMmsd+           \033[94m 2. \033[93mDocker\033[91m
-	   .+yydNMNy++m+`   ./+NMhymNh:`        \033[94m 3. \033[93mJenkins\033[91m
-	   -..yNMmys. -   `-:y:sNs+:ydNy`       \033[94m 4. \033[93mExit\033[91m
-	    .dNMMsMmo:  `ddoshhmN/-o``s.        
-	    yyyMM/NmMs  yMNd/-:-..``/-.`        
+		 `+oso+/:.+y:NMMMNNy            \033[94m 1. \033[93mBasic Linux\033[91m
+	      -/sdNNdsoss+--+sdMMmsd+           \033[94m 2. \033[93mYum\033[91m
+	   .+yydNMNy++m+`   ./+NMhymNh:`        \033[94m 3. \033[93mDocker\033[91m
+	   -..yNMmys. -   `-:y:sNs+:ydNy`       \033[94m 4. \033[93mHadoop\033[91m
+	    .dNMMsMmo:  `ddoshhmN/-o``s.        \033[94m 5. \033[93mAmazon\033[91m
+	    yyyMM/NmMs  yMNd/-:-..``/-.`        \033[94m 6. \033[93mExit\033[91m
 	    o`sMMy/yhNy:hyh:s:       `-`        
 	    ` +MhMh/:/hNh..+`o         .`       
 	      .d.yMNho//:..- :                  
@@ -38,8 +40,140 @@ while True:
 		   `-.`  .--.``                                       
 	\033[0m''')
 	a=input("Enter your choice : ")
-#-----------------------------yum---------------------------------------------
+#---------------------------------docker---------------------------------------------
+
 	if int(a) == 1:
+		while True:
+			os.system("clear")
+			print(''' \033[97m 
+                                                                                
+                                      ```                                       
+                              `-/oyhdmNNNNmmhys+/-`                             
+                        -+syhmNMMMMMMMMMMMMMNmmmMMNmy+-`                        
+                    `:smNMMMMMMMNm\033[31mdddd\033[97mmNmm\033[31mdhhddhy\033[97mmMMMMMms:                      
+                  -smMMMMMMMMMMm\033[31myyyyyyyyyyyyyhNmyy\033[97mNMMMMMMMd+`                   
+               `:hNMMMMMMMMMMMM\033[31mymdhhhyyyyyyyyhyyyyh\033[97mMMMMMMMMMm/                  
+              :dMMMMMMMMMMMMMMN\033[31myhdmhhyyyyyyyyyyyyyyd\033[97mMMMMMMMMMNh.                
+            -hNMMMMMMMMMMMMMMM\033[31mdyyyyyyyyyyyyyyyyyyyyy\033[97mNMMMMMMMMMMm:               
+           /mMMMMMMNmdddddmmmmh\033[31myyyyyyyyyyyyyyyyyyyyy\033[97mmMMMMMMMMMMMm:              
+          /NMMMMMMm\033[31myyyyyyyyyyy\033[97mmm\033[31mhhhhhhhyyyyyyyyyyyyy\033[97mdMNmmmNNMMMMMm-             
+         .mMMMMMMM\033[31myyyyyyyyyyyy\033[97mdNMMMMMMMNNh\033[31myyyyyyyyyyNNyyyyyhhm\033[97mNMMMd.            
+         hMMMMMMMM\033[31mhyyyyyyyyyyyy\033[97mhhdmNNNMMMNh\033[31myyyyyyyyhhyyyyyyyyyhd\033[97mMMMo            
+        /MMMMMMMMMM\033[31mdyyyyyyyyyyyyyyyyy\033[97mhhhhh\033[31myyyyyyyyyyyyyyyyyyyyyy\033[97mdMMm`           
+        dMMMMMMMMMMMmh\033[31myyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\033[97mhMMM/           
+        NMMMMMMMMMMMMMNdh\033[31myyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\033[97mdMMMh           
+       -NMMMMMMMMMMMMMNssddh\033[31myyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\033[97mhNMMMN.          
+       /MMMMMMMMMMMMMM/  :NMNmhhh\033[31myyyyyyyyyyyyyyyyyyyyyyyyyyyy\033[97mhmMMMMMM/          
+       :MMMMMMMMMMMMMd    -oyMMMNNNmm\033[31mdddhhhyyyyyyyyyyyyyyh\033[97mhdmMMMMMMMM+          
+       -MMMMMMMMMMMMMm`     `+mMMMMMMMMMMNmmNNNmmmmddhmmmNNMMMMMMMMMMo          
+       `NMMMMMMMMMMMMMs`      ./shddddhs+:--/os//os+-/NMMMMMMMMMMMMMM/          
+        hMMMMMMMMMMMMMM+          ````    ``   `     /MMMMMMMMMMMMMMN:          
+        .mMMMMMMMMMMMMMNh/`             `+yso+oy`    .NMMMMMMMMMMMMMm`          
+         -mMMMMNmy++smNMNm-              -..:++:     +MMMMMMMMMMMMMMs           
+          -dNds:`    .:/:.                          .NMMMMMMNNmmmmNm.           
+           `.`                                     `dMMMMMNh--....--            
+                                                  `yMMMdo:-`                    
+                                                `/hMMd/`                        
+                                                omdy/`                          
+                                    //:   ++     `               ..             
+                                    NMd   Nm                    .Ns             
+          -++.+s+` ./oso/.    .+ss+.NMd   Nm:osss:   `:ossss/` -sMdo-           
+          +MMmhys sNNsoyMN/  oNMhoodMMd   NMs:.-yM/  sN/..-+Ms `/My-`           
+          +MMo   :MMh///dMN`.MMh   `MMd   NN    .Ms  `-:/+osMd  -Ms             
+          +MM:   /MMh+++ooo`.MMy   `NMd   Nm    .My `hNo/:--Md  -Ms             
+          +MM:   `hMNo/+  ,  sMMy/+dMMd   Nm    .My -Md.``-yMd  .Mh-`           
+          :ss.     :oyhyo:    -oyys:+so   oo    `s/  -oyys+-+s`  /sy:           
+                                                                                
+
+		   	\033[92m Select your choice:\033[91m  
+			\033[92m---------------------\033[91m
+            
+	\033[94m 1. \033[93mYum Configuration\033[91m                     \033[94m 8. \033[93mTo delete file \033[91m  
+	\033[94m 2. \033[93mInstall Application\033[91m                   \033[94m 9. \033[93mTo copy file\033[91m  
+	\033[94m 3. \033[93mRemove Application\033[91m                    \033[94m 10. \033[93mMove file\033[91m
+	\033[94m 4. \033[93mTo Know Which Directory\033[91m               \033[94m 11. \033[93mDisplay content of file\033[91m 
+	\033[94m 5. \033[93mShow files in directory\033[94m               \033[94m 12. \033[93mTo make file executable\033[91m
+	\033[94m 6. \033[93mTo go inside directory\033[91m                \033[94m 13. \033[93mTo know hostname & IP\033[91m
+	\033[94m 7. \033[93mTo create a folder\033[91m                    \033[94m 14. \033[93mExit\033[91m
+	\033[0m''')
+			b=input("Enter your choice : ")
+			if int(b) == 1:
+				f=open("/etc/yum.repos.d/yum.repo","w")
+				f.write("[dvd1] \nbaseurl=file:///run/media/root/RHEL-8-0-0-BaseOS-x86_64/AppStream/ \ngpgcheck=0 \n[dvd2] \nbaseurl=file:///run/media/root/RHEL-8-0-0-BaseOS-x86_64/BaseOS/ \ngpgcheck=0 \n")
+				f.close()
+				print("Cofigured !")
+				input()
+			elif int(b) == 2: 
+				app=input("Enter the name of App : ")
+				os.system('yum install %s'%(app))
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 3: 
+				app=input("Enter the name of App : ")
+				os.system('yum remove %s'%(app))
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 4: 
+				os.system('pwd')
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 5: 
+				os.system('ls')
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 6: 
+				directory_name=input("Enter the name of directory in which you want to go : ")
+				os.system('cd %s'%(directory_name))
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 7: 
+				file_name=input("Enter the name of file to create : ")
+				os.system('mkdir %s'%(file_name))
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 8: 
+				file_name=input("Enter the name of file to delete : ")
+				os.system('rm -f %s'%(file_name))
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 9: 
+				file_name=input("Enter the name of file to copy : ")
+				os.system('cp %s'%(file_name))
+				print("Press enter to continue !")
+				input() 
+			elif int(b) == 10: 
+				file_name=input("Enter the name of file to move : ")
+				path=input("Give the path where you have to move the file")
+				os.system('mv %s %s'%(file_name , path))
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 11: 
+				file_name=input("Enter the name of file to display the content : ")
+				os.system('cat %s'%(file_name))
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 12: 
+				file_name=input("Enter the name of file to make executable : ")
+				os.system('chmod +x %s'%(file_name))
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 13: 
+				os.system('hostname')
+				os.system('hostname -I')
+				print("Press enter to continue !")
+				input()
+			elif int(b) == 14: 
+				print("Press Enter to Main Menu !")
+				input()
+				os.system("clear")
+				break;
+			else : 
+				print("Invalid Option")
+				input()
+
+
+#-----------------------------yum---------------------------------------------
+	elif int(a) == 2:
 		while True:
 			os.system("clear")
 			print(''' \033[94m 
@@ -101,7 +235,7 @@ while True:
 
 #---------------------------------docker---------------------------------------------
 
-	elif int(a) == 2:
+	elif int(a) == 3:
 		while True:
 			os.system("clear")
 			print(''' \033[96m 
@@ -144,10 +278,14 @@ while True:
 
 		   	\033[92m Select your choice:\033[91m  
 			\033[92m---------------------\033[91m
-	\033[94m 1. \033[93mDocker Configuration\033[91m	\033[94m 5. \033[93mDownload Docker Image\033[91m
-	\033[94m 2. \033[93mInstall Docker\033[91m		\033[94m 6. \033[93mCheck running os\033[91m
-	\033[94m 3. \033[93mDocker Status\033[91m		\033[94m 7. \033[93mCheck all os created\033[91m
-	\033[94m 4. \033[93mCheck Docker Images\033[91m		\033[94m 8. \033[93mExit !\033[91m
+\033[94m 1. \033[93mDocker Configuration\033[91m        \033[94m 8. \033[93mCreate a Container !\033[91m 
+\033[94m 2. \033[93mInstall Docker\033[91m              \033[94m 9. \033[93mCheck all created os \033[91m
+\033[94m 3. \033[93mDocker Status\033[91m               \033[94m 10. \033[93mDelete all created os \033[91m
+\033[94m 4. \033[93mCheck Docker Images\033[91m         \033[94m 11. \033[93mStart Docker Container Network Connectivity\033[91m
+\033[94m 5. \033[93mDownload Docker Image\033[91m       \033[94m 12. \033[93mCreate and Configure Webserver\033[91m
+\033[94m 6. \033[93mCheck running os\033[91m            \033[94m 13. \033[93mDelete a Container !\033[91m
+\033[94m 7. \033[93mDelete Container Image !\033[91m    \033[94m 14. \033[93mExit !\033[91m
+
 
 	\033[0m''')
 			c=input("Enter your choice : ")
@@ -183,11 +321,45 @@ while True:
 				print("Press enter to continue !")
 				input()
 			elif int(c) == 7: 
+				image_name=input("Please enter the name of image with version to delete !")
+				os.system('docker rmi %s'%(image_name))
+				print("Press enter to continue !")
+				input()
+			elif int(c) == 8: 
+				os_name=input("Please enter the os_name :")
+				image_name=input("please enter name_name: version :")
+				os.system('docker run -dit --name %s %s' %(os_name , image_name))
+				print("Press enter to continue !")
+				input()
+			elif int(c) == 9: 
 				print("Please wait while collecting data !")
 				os.system('docker ps -a')
 				print("Press enter to continue !")
 				input()
-			elif int(c) == 8: 
+			elif int(c) == 10: 
+				os.system('docker rm -f $(docker ps -a -q)')
+				print("Press enter to continue !")
+				input()  
+			elif int(c) == 11: 
+				print("Please wait while connectivity !")
+				os.system('firewall-cmd --zone=public --add-masquerade --permanent;firewall-cmd --zone=public --add-port=80/tcp;firewall-cmd --zone=public --add-port=443/tcp;firewall-cmd --reload')
+				print("Press enter to continue !")
+				input()
+			elif int(c) == 12: 
+				print("Please wait while configuring webserver  !")
+				os.system('docker run -dit -p 1234:80 --name myos centos:7')
+				os.system('docker exec -it myos yum install httpd -y')
+				os.system('docker exec -it myos /usr/sbin/httpd')
+				os.system('docker exec -it myos ./usr/sbin/httpd')
+				print("Press enter to continue !")
+				input() 
+			elif int(c) == 13: 
+				os.system('docker ps -a')
+				os_name=input("Please give the Container name or first 4 character of id to delete :")
+				os.system('docker rm -f %s'%(os_name))
+				print("Press enter to continue !")
+				input()
+			elif int(c) == 14: 
 				print("Press Enter to Main Menu !")
 				input()
 				os.system("clear")
@@ -195,51 +367,203 @@ while True:
 			else : 
 				print("Invalid Option\nPress Enter to continue...")
 				input()
-#-------------------------------------------------------jenkins---------------------------------------------------------------
-	elif int(a) == 3: 
+#-------------------------------------------------------hadoop---------------------------------------------------------------
+	elif int(a) == 4: 
 		while True:
 			os.system("clear")
 			print('''\033[33m 
-                                       `                                         
-                                 `/ohhsoossss+.                                   
-                              .++so/-........:sy-                                 
-                             oyoy/`............+do                                
-                           .hso+y:../so/......-:/y/                               
-                           sssssh-..:...-.......-.y                               
-                         -hmyhhss.......-o-.:+.:+oy+                              
-                       `yhsd+o+hh-...../o+.../s:-.yhd-                            
-                      .dysyh.+:--..............y/.dssd/                           
-                     `dyssshs:-/..........-+//++:/hsssd/                          
-                     shsssssyhm:...-..../+oss/so:dssssym`                         
-                    `mssssssssyy`..//...-ooo+/./dssssssd+                         
-                    -msssssssyhmy...-/+:....-+ydddysssshs                         
-                    -mssssyddhyshms/+hyddhsydhydhyddssshs                         
-                    `msshmhyyhhhhhhddysssydhhssydhhdsssd/                         
-                     ohsymyyhhhhhhhhhhssyyy:+ysydhdyssym`                         
-                     `dysymyhhhhhdhhhhdh+/s+.+/yhhdsssd:                          
-                      `hysdyyhhhhdyhhhddys+s+shhhdyyhmo                           
-                        sdhdyhhhddhdddhhhhddmmdddh++.`s+                          
-                         -ymyhhhhho`       `yyhs.o`-. `d`                         
-                           dyhhhhhs        `ohhd`y`-:..h`                         
-                           sddhhhhh`       `+ddm///so/+-                          
-                             .+shhd/       `/+o/                                  
-                                  .h        :/:y                                  
-                                   ++       -d+-                                  
-                                    osooooooo+                                    
-                                                                                  
-    .:::::::                          /hmNd`        sNNs                          
-     .oMMM:`                           :MMm`        +dd+                          
-      :MMM`     -://:`  `---:``-//-    :MMm` -----`---:-  .--:- .:/:.     -://--- 
-      :MMM`   oNN: /MMy``/NMMs++hMMd   :MMm` .dy/- -yMMd  -sMMNo++mMM+  -mMs``:ds 
-      :MMM`  oMMm+++MMM/  mMM:  .NMM`  :MMm.sN:     :MMd   :MMm`  oMMh  +MMNhs+-. 
-`ymd: :MMM`  yMMm         mMM:  .NMM`  :MMNoNMMo    :MMd   :MMm`  +MMh  .:shNMMMh`
-.NMm- yMMs   .mMMs`  .s-  mMM:  .NMM.  :MMm`.dMMd.  /MMm   :MMm`  +MMh  hs`  `mMm`
- .oo+yyo-      :syhys+` .+ssss-.+ssso-:osss+. osss//sssso.:osss+`:ssss+`++o+/+y+` 
+                          :/-` ./oyyyyssso-                 
+                          : -yho/-.......:ohs.              
+                          .hy.```.........../yy/            
+                       :yss+::-..............-:+ys.   `++.  
+                 `-:+ods--oy+/--....:+-.......---/d+`+do+do 
+             :oyys++my..-ss/-.......+-...--.----odmmys+/-:N-
+  `  ./   .sho-```oh-`..+---..:-....-.-yNMh:----+shh------yy
+:+`+shd``yh:````-h/`...--.....o/.....-:+/o:----//o-y------om
+: ss-my/m+``...:d.`...--......+y-...------------:--+------+N
+  -h+dsN/`.....m:`...-........-m:.-----------------------:sd
+   -sshs`......+d:.-/-.........m/------------------------/m/
+      m-......../dss-........--m/--------/:-------------/ds 
+      m:.........+d-......---:od/-------::os+:-------:+yd:  
+      ho.........+d:....-+syyoo/:--/++/---mMMMymyyyyys+-    
+     :Nm-.........-syssyy+::--------/yNho:dmdsd/            
+   :hy:oh-........-----------------:/dm/:yysso.             
+   dy..-oh-......-:-------/-------:/ho+N`                   
+   .dy:-:od-..----/dyyyhhhy-------/hs//N-                   
+     :yhhdN------:om `dh+-------:+do///d+                   
+        .No----::om.  hh---::::ohNyssssm/                   
+        .dds+/://mo    yd/://yd+``.....`                    
+          `-/+ssyo`     :hhhho            \033[96m 
+oooo                        .o8                                 
+`888                       "888                                 
+ 888 .oo.    .oooo.    .oooo888   .ooooo.   .ooooo.  oo.ooooo.  
+ 888P"Y88b  `P  )88b  d88' `888  d88' `88b d88' `88b  888' `88b 
+ 888   888   .oP"888  888   888  888   888 888   888  888   888 
+ 888   888  d8(  888  888   888  888   888 888   888  888   888 
+o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P' 
+                                                      888       
+                                                     o888o    
+   	\033[92m Select your choice:\033[91m  
+	\033[92m---------------------\033[91m
+	\033[94m 1. \033[93mHadoop Installation\033[91m
+	\033[94m 2. \033[93mHadoop Status\033[91m		
+	\033[94m 3. \033[93mConfigure NameNode\033[91m
+	\033[94m 4. \033[93mCheck Connected Nodes\033[91m    
+	\033[94m 5. \033[93mConfigure DataNode\033[91m
+	\033[94m 6. \033[93mUpload File\033[91m
+	\033[94m 7. \033[93mExit !\033[91m		
+\033[0m''')
+			d=input("Enter your choice : ")
+			if int(d) == 1:
+				rc = subprocess.call(['which', 'wget'])
+				if rc != 0:
+				    os.system("yum install wget -y")
+				rc = subprocess.call(['which', 'java'])
+				if rc != 0:
+				    os.system("wget http://83.103.170.157/apps/java/jdk_1.8/jdk/jdk-8u202-linux-x64.rpm")
+				    os.system("rpm -i jdk-8u202-linux-x64.rpm")
+				rc = subprocess.call(['which', 'hadoop'])
+				if rc != 0:
+				    os.system("wget https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1-1.x86_64.rpm")
+				    os.system("rpm -i hadoop-1.2.1-1.x86_64.rpm --force")
+				print("Installed Press Enter!")
+				input()
+			elif int(d) == 2: 
+				print("Please wait while checking status..\n\033[33mPress Q then Enter to exit !\033[0m")			
+				os.system("systemctl status hadoop") 
+				input()
+			elif int(d) == 3:
+				rc = subprocess.call(['which', 'wget'])
+				if rc != 0:
+				    os.system("yum install wget -y")
+				rc = subprocess.call(['which', 'java'])
+				if rc != 0:
+				    os.system("wget http://83.103.170.157/apps/java/jdk_1.8/jdk/jdk-8u202-linux-x64.rpm")
+				    os.system("rpm -i jdk-8u202-linux-x64.rpm")
+				rc = subprocess.call(['which', 'hadoop'])
+				if rc != 0:
+				    os.system("wget https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1-1.x86_64.rpm")
+				    os.system("rpm -i hadoop-1.2.1-1.x86_64.rpm --force")
+				f=open("/etc/hadoop/core-site.xml","w")
+				f.write('''<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+<property>
+<name>fs.default.name</name>
+<value>hdfs://0.0.0.0:9001</value>
+</property>
+</configuration>
+''')
+				f.close()
+				os.system("mkdir /dataDir")
+				f=open("/etc/hadoop/hdfs-site.xml","w")
+				f.write('''<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+<property>
+<name>dfs.name.dir</name>
+<value>/dataDir</value>
+</property>
+</configuration>
+''')
+				f.close()
+				os.system("systemctl stop firewalld")
+				os.system("hadoop namenode -format -y")
+				os.system("hadoop-daemon.sh start namenode")
+				os.system("netstat -tnlp") 
+				print("Press enter to continue !")
+				input()
+			elif int(d) == 4: 
+				print("Please wait while checking status..\n\033[33mPress Enter to exit !\033[0m")			
+				os.system("hadoop dfsadmin -report") 
+				input()
+			elif int(d) == 5: 
+				rc = subprocess.call(['which', 'wget'])
+				if rc != 0:
+				    os.system("yum install wget -y")
+				rc = subprocess.call(['which', 'java'])
+				if rc != 0:
+				    os.system("wget http://83.103.170.157/apps/java/jdk_1.8/jdk/jdk-8u202-linux-x64.rpm")
+				    os.system("rpm -i jdk-8u202-linux-x64.rpm")
+				rc = subprocess.call(['which', 'hadoop'])
+				if rc != 0:
+				    os.system("wget https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1-1.x86_64.rpm")
+				    os.system("rpm -i hadoop-1.2.1-1.x86_64.rpm --force")
+				master=input("Enter Master Node's IP : ")
+				f=open("/etc/hadoop/core-site.xml","w")
+				f.write('''<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+<property>
+<name>fs.default.name</name>
+<value>hdfs://%s:9001</value>
+</property>
+</configuration>
+'''%(master))
+				f.close()
+				os.system("mkdir /dn")
+				f=open("/etc/hadoop/hdfs-site.xml","w")
+				f.write('''<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+<property>
+<name>dfs.data.dir</name>
+<value>/dn</value>
+</property>
+</configuration>''')
+				f.close()
+				os.system("systemctl stop firewalld")
+				os.system("hadoop-daemon.sh start datanode")
+				os.system("jps") 
+				input()
+			elif int(d) == 6: 
+				filename=input("Please enter the file name with location :")			
+				os.system("hadoop fs -put %s"%(filename))
+				os.system()
+				input()
+
+
+			elif int(d) == 7:
+				print("Press Enter to Main Menu !")
+				input()
+				os.system("clear")
+				break;
+			else : 
+				print("Invalid Option\nPress Enter to continue...")
+				input()
+
+#-------------------------------------------------------AWS---------------------------------------------------------------
+	elif int(a) == 5: 
+		while True:
+			os.system("clear")
+			print('''\033[97m 
+				
+                                                                                
+   `.---::-.   `:::`-:/:` .-::.      .---.                                      
+  `.---.-::/:  `/++++oooo/ossss+   :syyyyys/   +ssssooo+  `-///:.    ... `..`   
+  ``..   -://` .+++/.-oooo/:+sss- .syy/-:yyy/  /ooosssso `ossoooo+`  /+/://::-  
+    `..--:://` .+++-  /ooo  .sss-  .--``.syy+     -ssso` /sso  :oo+  +++/.-:::` 
+  `.---..-://` .+++.  /ooo  .sss-  :oyyyyyyy+    /yyy+   sss/  `ooo. +++.  :::. 
+  .---   -://` .+++.  /ooo  .sss- :yyy:``syy+  `+yyy:    sss/   ooo- ++/.  -::` 
+  .---``.:://- .+++.  /ooo  .sss- +yyy  .yyyo `oyyys+/-` +ss+  `ooo. ++/.  -::` 
+  `.----:--:/- .+++.  /ooo  .sss- :yyyssyyyyy:.yyyyyysss`.sss:-/oo/  ++/.  -::` 
+    ````   .`   .--`  .::-  `///`  -+ooo:`/o: `+:..`.-/+` .+soooo:`  ///`  -:-` \033[33m
+             /+:`                             ./osyyso. *                        
+              `/so/-`                         `-.-.-sh:                         
+                `:oyys+:-`                  `-/oyy/ yy`                         
+                   ./oyyyyyso++//:::://++oyhhhho:` /y-                          
+                      `-/+syyyyhhhhhhhhhhhyo/-`    +.                           
+                            `--://///::-.                                       
+                                                                                
 
    	\033[92m Select your choice:\033[91m  
 	\033[92m---------------------\033[91m
-	\033[94m 1. \033[93mJenkins Installation\033[91m
-	\033[94m 2. \033[93mJenkins Status\033[91m		
+	\033[94m 1. \033[93mAmazon Installation\033[91m
+	\033[94m 2. \033[93mAmazon Status\033[91m		
 	\033[94m 3. \033[93mStop Jenkins\033[91m		
 	\033[94m 4. \033[93mExit !\033[91m		
 \033[0m''')
@@ -266,10 +590,8 @@ while True:
 			else : 
 				print("Invalid Option\nPress Enter to continue...")
 				input()
-#----------------------------------------------------------------------------------------------------------
-	
 #--------------------------------------------------------------------------------------------------------------
-	elif int(a) == 4: 
+	elif int(a) == 6: 
 		print("Bye !")
 		input()
 		os.system("clear")
