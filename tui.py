@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!python
 import getpass
 import subprocess
 import os
@@ -90,14 +90,11 @@ while True:
 
 		   	\033[92m Select your choice:\033[91m
 			\033[92m---------------------\033[91m
-
-	\033[94m 1. \033[93mStart a Process\033[91m                     \033[94m 8. \033[93mTo delete file \033[91m
-	\033[94m 2. \033[93mStop a Process\033[91m                   \033[94m 9. \033[93mTo copy file\033[91m
-	\033[94m 3. \033[93mStatus of Process\033[91m                    \033[94m 10. \033[93mMove file\033[91m
-	\033[94m 4. \033[93mTo Know Which Directory\033[91m               \033[94m 11. \033[93mDisplay content of file\033[91m
-	\033[94m 5. \033[93mShow files in directory\033[94m               \033[94m 12. \033[93mTo make file executable\033[91m
-	\033[94m 6. \033[93mTo go inside directory\033[91m                \033[94m 13. \033[93mTo know hostname & IP\033[91m
-	\033[94m 7. \033[93mTo create a folder\033[91m                    \033[94m 14. \033[93mExit\033[91m
+	\033[94m 1. \033[93mStart a Process\033[91m                      \033[94m 6. \033[93mTo delete file \033[91m
+	\033[94m 2. \033[93mStop a Process\033[91m                       \033[94m 7. \033[93mTo copy file\033[91m
+	\033[94m 3. \033[93mStatus of Process\033[91m                    \033[94m 8. \033[93mMove file\033[91m
+	\033[94m 4. \033[93mTo Know Which Directory\033[91m              \033[94m 9. \033[93mTo make file executable\033[91m
+	\033[94m 5. \033[93mShow files in directory\033[94m              \033[94m 10. \033[93mExit\033[91m
 	\033[0m''')
             b = input("Enter your choice : ")
             if int(b) == 1:
@@ -127,50 +124,29 @@ while True:
                 print("Press enter to continue !")
                 input()
             elif int(b) == 6:
-                directory_name = input(
-                    "Enter the name of directory in which you want to go : ")
-                os.system('cd %s' % (directory_name))
-                print("Press enter to continue !")
-                input()
-            elif int(b) == 7:
-                file_name = input("Enter the name of file to create : ")
-                os.system('mkdir %s' % (file_name))
-                print("Press enter to continue !")
-                input()
-            elif int(b) == 8:
                 file_name = input("Enter the name of file to delete : ")
                 os.system('rm -f %s' % (file_name))
                 print("Press enter to continue !")
                 input()
+            elif int(b) == 7:
+                source = input("Enter the source : ")
+                dest = input("Enter the destination of file : ")
+                os.system('cp -r  %s  %s' % (source,dest))
+                print("Press enter to continue !")
+                input()
+            elif int(b) == 8:
+                source = input("Enter the source : ")
+                dest = input("Enter the destination of file : ")
+                os.system('mv -rf %s %s' % (source,dest))
+                print("Press enter to continue !")
+                input()
             elif int(b) == 9:
-                file_name = input("Enter the name of file to copy : ")
-                os.system('cp %s' % (file_name))
-                print("Press enter to continue !")
-                input()
-            elif int(b) == 10:
-                file_name = input("Enter the name of file to move : ")
-                path = input("Give the path where you have to move the file")
-                os.system('mv %s %s' % (file_name, path))
-                print("Press enter to continue !")
-                input()
-            elif int(b) == 11:
-                file_name = input(
-                    "Enter the name of file to display the content : ")
-                os.system('cat %s' % (file_name))
-                print("Press enter to continue !")
-                input()
-            elif int(b) == 12:
                 file_name = input(
                     "Enter the name of file to make executable : ")
                 os.system('chmod +x %s' % (file_name))
                 print("Press enter to continue !")
                 input()
-            elif int(b) == 13:
-                os.system('hostname')
-                os.system('hostname -I')
-                print("Press enter to continue !")
-                input()
-            elif int(b) == 14:
+            elif int(b) == 10:
                 print("Press Enter to Main Menu !")
                 input()
                 os.system("clear")
@@ -651,28 +627,12 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                 input("\n Press Enter to exit !")
             elif int(d) == 5:
                 proc = 0
-                ec2 = boto3.client('ec2')
-                AMI_all_Images = {1: ["Amazon Linux 2 AMI (HVM), SSD Volume Type", "ami-0e306788ff2473ccb"],
-                                  2: [" Red Hat Enterprise Linux 8 (HVM), SSD Volume Type", "ami-052c08d70def0ac62"],
-                                  3: [" SUSE Linux Enterprise Server 15 SP2 (HVM), SSD Volume Type", "ami-0d0522ed4db1debd6"],
-                                  4: [" Ubuntu Server 20.04 LTS (HVM), SSD Volume Type", "ami-0cda377a1b884a1bc"],
-                                  5: [" Microsoft Windows Server 2019 Base", "ami-0b2f6494ff0b07a0e"],
-                                  6: [" Microsoft Windows Server 2019 Base with Containers", "ami-0295b81b270caa9d2"],
-                                  7: [" Microsoft Windows Server 2019 with SQL Server 2017 Standard", "ami-0482c1912c3398780"]}
-                if proc == 0:
-                    print("Choose the AMI to Launch Instance")
-                    print('  {0:3}    {1:80s}  {2:30s}  '.format(
-                        "S No", "Name", "Image ID"))
-                    for i in AMI_all_Images:
-                        print('  {0:3}    {1:80s}  {2:30s}  '.format(
-                            i, AMI_all_Images[i][0], AMI_all_Images[i][1]))
-
-                    choice = int(input("Enter your choice: "))
-                    if choice != 0 and choice <= int(AMI_all_Images.__len__()):
-                        AMI = AMI_all_Images[choice][1]
-                    else:
-                        print('Wrong Option Start Again !')
-                        proc = 1
+                choice= input("Enter the AMI Id (e.g. ami-052c08d70def0ac62): ")
+                if len(choice) > 4:
+                    AMI = choice
+                else:
+                    print('Wrong Option Start Again !')
+                    proc = 1
                 if proc == 0:
                     temp = {}
                     print('\t\t\t\t   Subnets:')
@@ -869,10 +829,38 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                         print('Wrong Option Start Again !')
                         proc = 1
                 if proc == 0:
-                    choice = int(input(
-                        "Do you want to make  your Bucket Public (Press 0 for NO or Pess 1 for YES  ): "))
-                    if choice >= 0 and choice <= 1:
-                        public = 1
+                    LocationConstraint = {1: "af-south-1",
+                                          2: "ap-east-1",
+                                          3: "ap-northeast-1",
+                                          4: "ap-northeast-2",
+                                          5: "ap-northeast-3",
+                                          6: "ap-south-1",
+                                          7: "ap-southeast-1",
+                                          8: "ap-southeast-2",
+                                          9: "ca-central-1",
+                                          10: "cn-north-1",
+                                          11: "cn-northwest-1",
+                                          12: "eu-central-1",
+                                          13: "eu-north-1",
+                                          14: "eu-south-1",
+                                          15: "eu-west-1",
+                                          16: "eu-west-2",
+                                          17: "eu-west-3",
+                                          18: "me-south-1",
+                                          19: "sa-east-1",
+                                          20: "us-east-2",
+                                          21: "us-gov-east-1",
+                                          22: "us-gov-west-1",
+                                          23: "us-west-1",
+                                          24: "us-west-2"
+                                          }
+                    print('     {0:3s}    {1:30s}'.format("S No.","LocationConstraint"))
+                    for i in LocationConstraint:
+                        print('     {0:3d}        {1:30s}'.format(i,LocationConstraint[i]))
+                    
+                    choice = int(input("Enter your choice: "))
+                    if choice != 0 and choice <= int(LocationConstraint.__len__()):
+                        LOCATION_CONSTRAINT = LocationConstraint[choice]
                     else:
                         print('Wrong Option Start Again !')
                         proc = 1
@@ -885,10 +873,9 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                         print('Wrong Option Start Again !')
                         proc = 1
                 if proc == 0:
-                    i = os.system(
-                        "aws s3api create-bucket --bucket %s --region %s --create-bucket-configuration LocationConstraint=%s" % (NAME, ZONE, ZONE))
-                    if public != 0 and i == 0:
-                        os.system(
+                    os.system(
+                        "aws s3api create-bucket --bucket %s --region %s --create-bucket-configuration LocationConstraint=%s" % (NAME, ZONE, LOCATION_CONSTRAINT))
+                    os.system(
                             "aws s3api put-bucket-acl --acl public-read --bucket %s" % (NAME))
                 input("Press Enter to Continue!")
             elif int(d) == 10:
@@ -906,49 +893,51 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
             elif int(d) == 11:
                 proc = 0
                 if proc == 0:
-                	response = s3.list_buckets()
-                	temp = {}
-                	count = 1
-                	print("\t   S3 Bucket")
-                	print("\t  -------------")
-                	for b in response['Buckets']:
-                		if b.__contains__("Name"):
-                			temp[count] = b['Name']
-                			print('    {0:3d}   {1:20s}'.format(count, b['Name']))
-                			count += 1
-                	choice = int(input("Enter your choice: "))
-                	if choice != 0 and choice <= int(temp.__len__()):
-                		BUCKET_NAME = temp[choice]
-                	else:
-                		print('Wrong Option Start Again !')
-                		proc = 1
-                
+                    response = s3.list_buckets()
+                    temp = {}
+                    count = 1
+                    print("\t   S3 Bucket")
+                    print("\t  -------------")
+                    for b in response['Buckets']:
+                        if b.__contains__("Name"):
+                            temp[count] = b['Name']
+                            print('    {0:3d}   {1:20s}'.format(
+                                count, b['Name']))
+                            count += 1
+                    choice = int(input("Enter your choice: "))
+                    if choice != 0 and choice <= int(temp.__len__()):
+                        BUCKET_NAME = temp[choice]
+                    else:
+                        print('Wrong Option Start Again !')
+                        proc = 1
+
                 if proc == 0:
-                	response = s3.list_objects(
-                		Bucket=BUCKET_NAME)
-                	temp = {}
-                	count = 1
-                	print("\t   S3 Bucket Objects")
-                	print("\t  ---------------------")
-                	for b in response['Contents']:
-                		if b.__contains__("Key"):
-                			temp[count] = b['Key']
-                			print('    {0:3d}   {1:20s}'.format(count, b['Key']))
-                			count += 1
-                	choice = int(
-                		input("Enter your choice (Don't select Folders ): "))
-                	if choice != 0 and choice <= int(temp.__len__()):
-                		if temp[choice][-1] != "/":
-                			BUCKET_ROOT_OBJECT = temp[choice]
-                		else:
-                			print("You Can't Select Folder Start Again ! ")
-                			proc = 1
-                	else:
-                		print('Wrong Option Start Again !')
-                		proc = 1
+                    response = s3.list_objects(
+                        Bucket=BUCKET_NAME)
+                    temp = {}
+                    count = 1
+                    print("\t   S3 Bucket Objects")
+                    print("\t  ---------------------")
+                    for b in response['Contents']:
+                        if b.__contains__("Key"):
+                            temp[count] = b['Key']
+                            print('    {0:3d}   {1:20s}'.format(
+                                count, b['Key']))
+                            count += 1
+                    choice = int(
+                        input("Enter your choice (Don't select Folders ): "))
+                    if choice != 0 and choice <= int(temp.__len__()):
+                        if temp[choice][-1] != "/":
+                            BUCKET_ROOT_OBJECT = temp[choice]
+                        else:
+                            print("You Can't Select Folder Start Again ! ")
+                            proc = 1
+                    else:
+                        print('Wrong Option Start Again !')
+                        proc = 1
                 if proc == 0:
-                	os.system("aws cloudfront create-distribution --origin-domain-name %s.s3.amazonaws.com --default-root-object %s" %
-                				(BUCKET_NAME, BUCKET_ROOT_OBJECT))
+                    os.system("aws cloudfront create-distribution --origin-domain-name %s.s3.amazonaws.com --default-root-object %s" %
+                              (BUCKET_NAME, BUCKET_ROOT_OBJECT))
                 input()
             elif int(d) == 12:
                 print('\n InstanceTypeOfferings')
@@ -992,22 +981,22 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                                 count += 1
                 choice = int(input("Enter your choice: "))
                 if choice != 0 and choice <= int(temp.__len__()):
-                    os.system("aws ec2 terminate-instances --instance-ids %s"%(temp[choice]))
+                    os.system(
+                        "aws ec2 terminate-instances --instance-ids %s" % (temp[choice]))
                 else:
                     print('Wrong Option Start Again !')
                 input("Press Enter to Continue !")
             elif int(d) == 14:
                 print('\t\t\t       Volumes Details')
                 print('\t\t\t    --------------------\n')
-                print(f"AvailabilityZone  \t\tVolumeId  \t\tName\n")
+                i=1
+                print('{0:4s}     {1:30s}    {2:15s}      {3:30s}     {4:4s}    {5:10s}  {6:5s}\n'.format("S.No","Name","AvailabilityZone","VolumeId","Size","State","VolumeType"))
                 volumes_all = ec2.describe_volumes()
                 for vol in volumes_all["Volumes"]:
                     if vol.__contains__("Tags"):
-                        print(
-                            f'{vol["AvailabilityZone"]}  \t\t{vol["VolumeId"]}  \t\t{vol["Tags"][0]["Value"]}')
+                        print('{0:4d}     {1:30s}    {2:15s}      {3:30s}     {4:4d}    {5:10s}   {6:5s}'.format(i,vol["Tags"][0]["Value"],vol["AvailabilityZone"],vol["VolumeId"],vol["Size"],vol["State"],vol["VolumeType"]))
                     else:
-                        print(
-                            f'{vol["AvailabilityZone"]}  \t\t{vol["VolumeId"]}  \t\t{"NO Name"}')
+                        print('{0:4d}     {1:30s}    {2:15s}      {3:30s}     {4:4d}    {5:10s}   {6:5s}'.format(i,"No Name",vol["AvailabilityZone"],vol["VolumeId"],vol["Size"],vol["State"],vol["VolumeType"]))
                 input("Press enter to exit !")
             elif int(d) == 16:
                 print('\n\nAll Available Volumes Types')
