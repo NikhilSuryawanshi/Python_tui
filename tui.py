@@ -539,8 +539,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
             pip.main(['install', 'boto3'])
             boto_check = 1
         import boto3
-        ec2 = boto3.client('ec2')
-        s3 = boto3.client('s3')
+        
         while True:
             os.system("clear")
             print('''\033[97m
@@ -580,6 +579,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                 print("Installed Press Enter!")
                 input()
             elif int(d) == 2:
+                ec2 = boto3.client('ec2')
                 response = ec2.describe_regions()
                 print('   \t\t Region \n\t ------------------------')
                 count = 1
@@ -600,6 +600,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                 print('Configured!')
                 input()
             elif int(d) == 4:
+                ec2 = boto3.client('ec2')
                 response = ec2.describe_instances()
                 count = 1
                 print('  {0:3}    {1:30s}  {2:15s}     {3:15s}   {4:7s}'.format(
@@ -626,6 +627,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                                 count += 1
                 input("\n Press Enter to exit !")
             elif int(d) == 5:
+                ec2 = boto3.client('ec2')
                 proc = 0
                 choice= input("Enter the AMI Id (e.g. ami-052c08d70def0ac62): ")
                 if len(choice) > 4:
@@ -714,6 +716,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
 
                 input("Press Enter to Continue !")
             elif int(d) == 6:
+                ec2 = boto3.client('ec2')
                 print('\n\t   Key-Pairs')
                 print('\t------------- \n')
                 kp_all = ec2.describe_key_pairs()
@@ -723,6 +726,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                     count += 1
                 input("\n Press Enter to exit !")
             elif int(d) == 7:
+                ec2 = boto3.client('ec2')
                 proc = 0
                 if proc == 0:
                     ALL_VOLUME_TYPE = {
@@ -799,6 +803,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                         "aws ec2 attach-volume --volume-id %s --instance-id %s --device /dev/sdf" % (VOLUME_ID, INSTANCE_ID))
                 input("Press Enter to Continue !")
             elif int(d) == 8:
+                ec2 = boto3.client('ec2')
                 response = ec2.describe_security_groups()
                 print('\n\t  securityGroups')
                 print('\t------------------\n')
@@ -811,6 +816,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                     count += 1
                 input("\nPress Enter to exit !")
             elif int(d) == 9:
+                ec2 = boto3.client('ec2')
                 proc = 0
                 public = 0
                 if proc == 0:
@@ -879,6 +885,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                             "aws s3api put-bucket-acl --acl public-read --bucket %s" % (NAME))
                 input("Press Enter to Continue!")
             elif int(d) == 10:
+                ec2 = boto3.client('ec2')
                 print('\t\t\t\t   Subnets:')
                 print('\t\t\t\t---------------\n')
                 sn_all = ec2.describe_subnets()
@@ -891,6 +898,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                     count += 1
                 input("\nPress Enter to exit !")
             elif int(d) == 11:
+                s3 = boto3.client('s3')
                 proc = 0
                 if proc == 0:
                     response = s3.list_buckets()
@@ -940,6 +948,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                               (BUCKET_NAME, BUCKET_ROOT_OBJECT))
                 input()
             elif int(d) == 12:
+                ec2 = boto3.client('ec2')
                 print('\n InstanceTypeOfferings')
                 print('-----------------------\n')
                 type_offerings = ec2.describe_instance_type_offerings()
@@ -950,6 +959,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                     count += 1
                 input()
             elif int(d) == 13:
+                ec2 = boto3.client('ec2')
                 response = ec2.describe_instances()
                 count = 1
                 temp = {}
@@ -987,6 +997,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                     print('Wrong Option Start Again !')
                 input("Press Enter to Continue !")
             elif int(d) == 14:
+                ec2 = boto3.client('ec2')
                 print('\t\t\t       Volumes Details')
                 print('\t\t\t    --------------------\n')
                 i=1
