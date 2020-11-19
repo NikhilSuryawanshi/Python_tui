@@ -266,7 +266,7 @@ while True:
 \033[94m 2. \033[93mInstall Docker\033[91m              \033[94m 9. \033[93mCheck all created os \033[91m
 \033[94m 3. \033[93mDocker Status\033[91m               \033[94m 10. \033[93mDelete all created os \033[91m
 \033[94m 4. \033[93mCheck Docker Images\033[91m         \033[94m 11. \033[93mStart Docker Container Network Connectivity\033[91m
-\033[94m 5. \033[93mDownload Docker Image\033[91m       \033[94m 12. \033[93mCreate and Configure Webserver\033[91m
+\033[94m 5. \033[93mDownload Docker Image\033[91m       \033[94m 12. \033[93mCreate and Configure Webserver and python\033[91m
 \033[94m 6. \033[93mCheck running os\033[91m            \033[94m 13. \033[93mDelete a Container !\033[91m
 \033[94m 7. \033[93mDelete Container Image !\033[91m    \033[94m 14. \033[93mExit !\033[91m
 
@@ -336,7 +336,7 @@ while True:
             elif int(c) == 12:
                 print("Please wait while configuring webserver  !")
                 os.system('docker run -dit -p 1234:80 --name myos centos:7')
-                os.system('docker exec -it myos yum install httpd -y')
+                os.system('docker exec -it myos yum install httpd python3 -y')
                 os.system('docker exec -it myos /usr/sbin/httpd')
                 os.system('docker exec -it myos ./usr/sbin/httpd')
                 print("Press enter to continue !")
@@ -579,7 +579,7 @@ o888o o888o `Y888""8o `Y8bod88P" `Y8bod8P' `Y8bod8P'  888bod8P'
                 print("Installed Press Enter!")
                 input()
             elif int(d) == 2:
-                ec2 = boto3.client('ec2')
+                ec2=boto3.client("ec2")
                 response = ec2.describe_regions()
                 print('   \t\t Region \n\t ------------------------')
                 count = 1
